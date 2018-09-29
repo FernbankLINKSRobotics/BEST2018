@@ -1,10 +1,11 @@
 #include "main.h"
 #include "arm.h"
+#include "constants.h"
 
 void setShoulder(int speed){
-  motorSet(2, speed);
+  motorSet(motor::shoulder, speed);
 }
 
 void setElbow(int speed){
-  motorSet(3, speed);
+  motorSet(motor::elbow, speed);
 }

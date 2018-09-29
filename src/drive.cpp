@@ -1,6 +1,7 @@
 #include "main.h"
 #include "drive.h"
+#include "constants.h"
 
 void winch(int speed){
-  motorSet(1, speed);
+  motorSet(motor::winch, speed);
 }
