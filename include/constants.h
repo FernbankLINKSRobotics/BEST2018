@@ -9,4 +9,8 @@ namespace motor {
   const int winch = 5;
 }
 
+namespace pid {
+  const double shoulderP = 1.0;
+}
+
 #endif

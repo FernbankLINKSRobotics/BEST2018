@@ -9,6 +9,9 @@
 
 #include "main.h"
 #include "claw.h"
+#include "PID.h"
+#include "constants.h"
+#include "arm.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -28,10 +31,19 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl() {
-	while (1) {
-		if(joystickGetDigital(1, 7, JOY_UP)){
+	// init
+	initArm();
 
+	// operational loop
+	while (1) {
+		// IO
+		if(joystickGetDigital(1, 7, JOY_UP)){
+			shoulderPID.setSetpoint(50);
+			elbowPID.setSetpoint(100);
 		}
+
+		// update and wait
+		updateArm();
 		delay(20);
 	}
 }
