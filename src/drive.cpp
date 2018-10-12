@@ -2,6 +2,6 @@
 #include "drive.h"
 #include "constants.h"
 
-void winch(int speed){
+void setWinch(int speed){
   motorSet(motor::winch, speed);
 }

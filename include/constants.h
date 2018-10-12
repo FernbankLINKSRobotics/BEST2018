@@ -7,6 +7,7 @@ namespace motor {
   const int wrist = 3;
   const int claw = 4;
   const int winch = 5;
+  const int twist = 6;
 }
 
 namespace pid {

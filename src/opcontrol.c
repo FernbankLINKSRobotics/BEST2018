@@ -12,6 +12,7 @@
 #include "PID.h"
 #include "constants.h"
 #include "arm.h"
+#include "drive.h"
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -32,18 +33,23 @@
  */
 void operatorControl() {
 	// init
-	initArm();
+	//initArm();
 
 	// operational loop
 	while (1) {
 		// IO
-		if(joystickGetDigital(1, 7, JOY_UP)){
-			shoulderPID.setSetpoint(50);
-			elbowPID.setSetpoint(100);
+		if(joystickGetDigital(1, 6, JOY_UP)){
+			setWinch(50);
+		}
+		if(joystickGetDigital(1, 5, JOY_UP)){
+			setWinch(-50);
 		}
 
+		setTwist(joystickGetAnalog(1,1));
+		setShoulder(joystickGetAnalog(1, 2));
+		setElbow(joystickGetAnalog(1, 3));
+
 		// update and wait
-		updateArm();
 		delay(20);
 	}
 }

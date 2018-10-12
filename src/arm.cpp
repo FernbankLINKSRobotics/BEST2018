@@ -17,6 +17,10 @@ void setElbow(int speed){
   motorSet(motor::elbow, speed);
 }
 
+void setTwist(int speed){
+  motorSet(motor::twist, speed);
+}
+
 
 void updateArm(){
   // TODO: replac with real code

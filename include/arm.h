@@ -3,6 +3,7 @@
 
 void setShoulder(int speed);
 void setElbow(int speed);
+void setTwist(int speed);
 void updateArm();
 void initArm();
 
